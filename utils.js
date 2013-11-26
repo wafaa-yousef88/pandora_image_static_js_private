@@ -1603,6 +1603,7 @@ pandora.getStatusText = function(data) {
     return parts.join(', ');
 };
 /* uwe - wafaa , i added this function */
+/*
 pandora.getImageURL = function(id, resolution, part) {
     var prefix = pandora.site.site.imageprefix
         .replace('{id}', id)
@@ -1610,7 +1611,7 @@ pandora.getImageURL = function(id, resolution, part) {
         .replace('{resolution}', resolution)
         .replace('{uid}', Ox.uid());
     return prefix + '/' + id + '/' + resolution + 'p' + part + '.' + pandora.user.imageFormat;
-}
+}*/
 
 pandora.getVideoURL = function(id, resolution, part) {
     var prefix = pandora.site.site.videoprefix
@@ -1618,7 +1619,8 @@ pandora.getVideoURL = function(id, resolution, part) {
         .replace('{part}', part)
         .replace('{resolution}', resolution)
         .replace('{uid}', Ox.uid());
-    return prefix + '/' + id + '/' + resolution + 'p' + part + '.' + pandora.user.videoFormat;
+/* wafaa - uwe */
+    return prefix + '/' + id + '/' + resolution + 'p' + part + '.' + pandora.user.imageFormat;
 }
 
 pandora.getVideoOptions = function(data) {
@@ -1805,9 +1807,9 @@ pandora.signin = function(data) {
     // fixme: this is still voodoo
     pandora.user = Ox.extend(data.user, {
         sectionElement: 'buttons',
-        videoFormat: Ox.getVideoFormat(pandora.site.video.formats)
+        imageFormat: Ox.getImageFormat(pandora.site.image.formats)
 /* uwe - wafaa */
-        /*imageFormat: Ox.getImageFormat(pandora.site.image.formats)*/
+        /*videoFormat: Ox.getVideoFormat(pandora.site.video.formats)*/
     });
     pandora.user.ui._list = pandora.getListState(pandora.user.ui.find);
     pandora.user.ui._filterState = pandora.getFilterState(pandora.user.ui.find);

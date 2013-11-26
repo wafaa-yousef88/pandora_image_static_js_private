@@ -360,7 +360,8 @@ appPanel
 
         Ox.extend(pandora.user, {
             sectionElement: 'buttons',
-            videoFormat: Ox.getVideoFormat(pandora.site.video.formats)
+		/* wafaa - uwe */
+            imageFormat: Ox.getImageFormat(pandora.site.image.formats)
         });
 
         // set locale and initialize url controller

@@ -14,9 +14,7 @@ pandora.ui.videoPreview = function(data) {
                         : Ox.max(pandora.site.video.resolutions);
                 return '/' + data.id + '/' + resolution + 'p' + (
                     Ox.isUndefined(position) ? '' : position
-                /*wafaa replaced extension to make it display 240p.png in frames icon img*/
 								) + '.jpg';
-                /*) + '.png';*/
             },
             frameRatio: data.frameRatio,
             height: data.height,
