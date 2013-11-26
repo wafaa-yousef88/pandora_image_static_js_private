@@ -25,7 +25,7 @@ pandora.ui.timeline = function(data) {
             duration: data.duration,
             followPlayer: ui.followPlayer,
             getFrameURL: function(position) {
-                return '/' + ui.item + '/' + ui.videoResolution + 'p' + position + '.jpg';
+                return '/' + ui.item + '/' + ui.videoResolution + 'p' + position + '.png';
             },
             getLargeTimelineURL: function(type, i) {
                 return '/' + ui.item + '/timeline' + type + '64p' + i + '.jpg';

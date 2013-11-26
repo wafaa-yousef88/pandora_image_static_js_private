@@ -204,6 +204,7 @@ pandora.UI = (function() {
                 }
             });
         });
+
         if (Ox.len(set) && !pandora.isEmbedURL() && !pandora.isPrintURL()) {
             pandora.api.setUI(set);
         }

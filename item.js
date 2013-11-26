@@ -9,7 +9,6 @@ pandora.ui.item = function() {
         item = pandora.user.ui.item,
         that = Ox.Element(),
         videopointsEvent = 'pandora_videopoints.' + item.toLowerCase();
-
     pandora.api.get({
         id: pandora.user.ui.item,
         keys: isVideoView ? [
@@ -74,11 +73,11 @@ pandora.ui.item = function() {
             );
 
         } else if (pandora.user.ui.itemView == 'player') {
-
-            pandora.$ui.contentPanel.replaceElement(1,
+						/*wafaa player area*/
+            /*pandora.$ui.contentPanel.replaceElement(1,
                 pandora.$ui.player = pandora.ui.player(result.data)
-            );
-
+            );*/
+						$('<div class="ImgGallery"><img src="/O/240p0.jpg" style= "width:400px;" \></div>').appendTo(that);
         } else if (pandora.user.ui.itemView == 'editor') {
 
             pandora.$ui.contentPanel.replaceElement(1,

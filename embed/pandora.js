@@ -173,6 +173,8 @@ Ox.load('UI', {
                 }
             }
             Ox.extend(pandora.user, {
+		/* wafaa - uwe changed/added getVideoFormat to getImageFormat */
+                /*imageFormat: Ox.getImageFormat(pandora.site.image.formats),*/
                 videoFormat: Ox.getVideoFormat(pandora.site.video.formats)
             });
             var options = parseQuery();

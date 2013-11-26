@@ -1602,6 +1602,15 @@ pandora.getStatusText = function(data) {
     }
     return parts.join(', ');
 };
+/* uwe - wafaa , i added this function */
+pandora.getImageURL = function(id, resolution, part) {
+    var prefix = pandora.site.site.imageprefix
+        .replace('{id}', id)
+        .replace('{part}', part)
+        .replace('{resolution}', resolution)
+        .replace('{uid}', Ox.uid());
+    return prefix + '/' + id + '/' + resolution + 'p' + part + '.' + pandora.user.imageFormat;
+}
 
 pandora.getVideoURL = function(id, resolution, part) {
     var prefix = pandora.site.site.videoprefix
@@ -1797,6 +1806,8 @@ pandora.signin = function(data) {
     pandora.user = Ox.extend(data.user, {
         sectionElement: 'buttons',
         videoFormat: Ox.getVideoFormat(pandora.site.video.formats)
+/* uwe - wafaa */
+        /*imageFormat: Ox.getImageFormat(pandora.site.image.formats)*/
     });
     pandora.user.ui._list = pandora.getListState(pandora.user.ui.find);
     pandora.user.ui._filterState = pandora.getFilterState(pandora.user.ui.find);

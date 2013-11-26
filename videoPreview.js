@@ -14,13 +14,16 @@ pandora.ui.videoPreview = function(data) {
                         : Ox.max(pandora.site.video.resolutions);
                 return '/' + data.id + '/' + resolution + 'p' + (
                     Ox.isUndefined(position) ? '' : position
-                ) + '.jpg';
+                /*wafaa replaced extension to make it display 240p.png in frames icon img*/
+								) + '.jpg';
+                /*) + '.png';*/
             },
             frameRatio: data.frameRatio,
             height: data.height,
             position: data.position,
             scaleToFill: true,
-            timeline: '/' + data.id + '/timeline16p.jpg',
+						/*wafaa*/
+            /*timeline: '/' + data.id + '/timeline16p.jpg',*/
             videoTooltip: data.videoTooltip,
             width: data.width
         });
