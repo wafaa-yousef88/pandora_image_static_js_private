@@ -873,7 +873,7 @@ pandora.getClipVideos = function(clip, resolution) {
     resolution = resolution || pandora.user.ui.videoResolution;
     return Ox.flatten(Ox.range(clip.parts).map(function(i) {
         var item = {
-            src: pandora.getVideoURL(clip.item, resolution, i + 1)
+            src: pandora.getMediaURL(clip.item, resolution, i + 1)
         };
         if (currentTime + clip.durations[i] <= start || currentTime > end) {
             item = null;
@@ -1603,15 +1603,14 @@ pandora.getStatusText = function(data) {
     return parts.join(', ');
 };
 /* uwe - wafaa , i added this function */
-/*
-pandora.getImageURL = function(id, resolution, part) {
-    var prefix = pandora.site.site.imageprefix
+pandora.getMediaURL = function(id, resolution, part) {
+    var prefix = pandora.site.site.videoprefix
         .replace('{id}', id)
         .replace('{part}', part)
         .replace('{resolution}', resolution)
         .replace('{uid}', Ox.uid());
     return prefix + '/' + id + '/' + resolution + 'p' + part + '.' + pandora.user.imageFormat;
-}*/
+}
 
 pandora.getVideoURL = function(id, resolution, part) {
     var prefix = pandora.site.site.videoprefix
@@ -1669,7 +1668,7 @@ pandora.getVideoOptions = function(data) {
         options.video[resolution] = Ox.range(data.parts).map(function(i) {
             return {
                 duration: data.durations[i],
-                src: pandora.getVideoURL(data.item || pandora.user.ui.item, resolution, i + 1)
+                src: pandora.getMediaURL(data.item || pandora.user.ui.item, resolution, i + 1)
             };
         });
     });
