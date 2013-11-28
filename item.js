@@ -74,10 +74,10 @@ pandora.ui.item = function() {
 
         } else if (pandora.user.ui.itemView == 'player') {
 						/*wafaa player area*/
-            /*pandora.$ui.contentPanel.replaceElement(1,
+            pandora.$ui.contentPanel.replaceElement(1,
                 pandora.$ui.player = pandora.ui.player(result.data)
-            );*/
-						$('<div class="ImgGallery"><img src="/O/240p0.jpg" style= "width:400px;" \></div>').appendTo(that);
+            );
+						/*$('<div class="ImgGallery"><img src="/O/240p0.jpg" style= "width:400px;" \></div>').appendTo(that);*/
         } else if (pandora.user.ui.itemView == 'editor') {
 
             pandora.$ui.contentPanel.replaceElement(1,
