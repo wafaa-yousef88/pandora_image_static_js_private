@@ -14,10 +14,12 @@ pandora.ui.previewDialog = function() {
                 content: Ox.Element(),
                 fixedRatio: true,
                 focus: false,
-                height: size.height,
+								//wafaa
+                //height: size.height,
                 maximizeButton: true,
-                title: Ox._('Loading...'),
-                width: size.width
+                title: Ox._('Loading...')
+								//wafaa commented
+                //width: size.width
             })
             .bindEvent({
                 resize: function(data) {
@@ -25,7 +27,8 @@ pandora.ui.previewDialog = function() {
                     // (currently the only reason $image is in the outer scope)
                     $image.css({
                         width: data.width,
-                        height: data.height
+                        //wafaa
+												//height: data.height
                     });
                 },
                 pandora_find: function() {
@@ -79,22 +82,35 @@ pandora.ui.previewDialog = function() {
                     item.year ? ' ' + item.year : ''
                 );
             $image = $('<img>')
-                .attr({src: '/' + item.id + '/' + (
-                    pandora.user.ui.showSitePosters ? 'siteposter' : 'poster'
-                ) + '128.jpg?' + item.modified})
-                .css({width: size.width + 'px', height: size.height + 'px'});
+                //wafaa
+                //.attr({src: '/' + item.id + '/' + (
+										//pandora.user.ui.showSitePosters ? 'siteposter' : 'poster'
+                    //pandora.user.ui.showSitePosters ? 'siteposter' : 'icon'
+                //) + '128.jpg?' + item.modified})
+                .attr({src: '/' + item.id + '/480p.png'})
+								//wafaa
+                //.css({/*width: size.width + 'px',*/ height: size.height + 'px'});
+                //.css({height: '480px'});
             $('<img>')
                 .load(function() {
                     $image.attr({src: $(this).attr('src')});
                 })
-                .attr({src: '/' + item.id + '/' + (
-                    pandora.user.ui.showSitePosters ? 'siteposter' : 'poster'
-                ) + '1024.jpg?' + item.modified});
+								//wafaa
+                //.attr({src: '/' + item.id + '/' + (
+                    //pandora.user.ui.showSitePosters ? 'siteposter' : 'poster'
+                    //pandora.user.ui.showSitePosters ? 'siteposter' : 'icon'
+                //) + '1024.jpg?' + item.modified});
+                .attr({src: '/' + item.id + '/480p.png'});
+
             that.options({
                     content: $image,
                     title: title,
                 })
-                .setSize(size.width, size.height);
+								//wafaa
+                //.setSize(size.width, size.height);
+                //.setSize('auto', '480px');
+                //.setSize('auto', '480px');
+
         });
         return that;
     }
